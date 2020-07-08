@@ -1,4 +1,4 @@
-package com.in28minutes.rest.webservices.restfulwebservices.basic.auth;
+package com.in28minutes.rest.webservices.basic.auth;
 
 public class AuthenticationModel {
 

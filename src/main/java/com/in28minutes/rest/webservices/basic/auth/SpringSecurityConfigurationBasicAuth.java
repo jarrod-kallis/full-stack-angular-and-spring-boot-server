@@ -1,4 +1,4 @@
-package com.in28minutes.rest.webservices.restfulwebservices.basic.auth;
+package com.in28minutes.rest.webservices.basic.auth;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -16,14 +16,10 @@ public class SpringSecurityConfigurationBasicAuth
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable() // Disable all cross site request forgery security
 				.authorizeRequests().antMatchers("/login").permitAll()
-				.antMatchers(HttpMethod.OPTIONS, "/**").permitAll() // Allow
-																	// unauthenticated
-																	// preflight
-																	// 'OPTIONS'
-																	// requests
-																	// to all
-																	// URLs
-				.anyRequest().authenticated().and()
+				// Allow unauthenticated preflight 'OPTIONS' requests to all
+				// URLs
+				.antMatchers(HttpMethod.OPTIONS, "/**").permitAll().anyRequest()
+				.authenticated().and()
 				// .formLogin().and()
 				.httpBasic();
 	}
